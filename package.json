@@ -19,5 +19,13 @@
   "description": "Tp Node",
   "keywords": [
     "TP"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nath24-8/tpnode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nath24-8/tpnode/issues"
+  },
+  "homepage": "https://github.com/nath24-8/tpnode#readme"
 }

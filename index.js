@@ -3,11 +3,11 @@ const express = require("express");
 const app = express();
 
 app.get("/recup", (req, res) => {
-  const fs = require("fs");
-  const csv = require("csv-parser");
   const send = [];
-  const download = require("download");
+  const fs = require("fs");
   const unzip = require("unzip-stream");
+  const download = require("download");
+  const csv = require("csv-parser");
   var i = 0;
   var countTrue = 0;
   download(
@@ -18,8 +18,6 @@ app.get("/recup", (req, res) => {
       .pipe(unzip.Parse())
       .on("entry", function (entry) {
         const fileName = entry.path;
-        const type = entry.type;
-        const size = entry.size;
         if (fileName === "StockEtablissementLiensSuccession_utf8.csv") {
           entry
             .pipe(csv())
@@ -43,6 +41,5 @@ app.get("/recup", (req, res) => {
         }
       });
   });
-
-  app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 });
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
